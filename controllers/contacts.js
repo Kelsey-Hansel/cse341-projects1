@@ -30,7 +30,7 @@ const createContact = async (req, res) => {
         birthday: req.body.birthday
     };
     const response = await mongodb.getDatabase().db('project1').collection('contacts').insertOne(contact);
-    if (response.acknowleged) {
+    if (response.acknowledged) {
         res.status(204).send();
     } else {
         res.status(500).json(response.error || 'Some error occurred while adding the user.');
